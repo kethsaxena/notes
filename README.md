@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @kethsaxena
-- 👀 I’m interested in Python , C++, Linux  projects
+- 👀 I’m interested in JAVA,C++,Bash & Python projects
 - 🌱 I’m currently learning ... watchdog, log roation , distributed computing
 - 💞️ I’m looking to collaborate on ...making python faster 
 - 📫 How to reach me ...please don't 
