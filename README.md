@@ -64,4 +64,4 @@
 
 ### Functions
 
-1. COALESCE - used to handle **null** values    
+1. COALESCE - used to handle **null** values. If there is null value in column and you want to include in result set, you can COALESCE(Column Name, int or String value)    
