@@ -13,12 +13,13 @@
     
     DATA
     |name|subject|marks
-    |abc|History|75
-    |abc|Biology|72
-    |abc|Maths|78
-    |pqr|History|65
-    |pqr|Biology|89
-    |pqr|Maths|90
+    |----|-------|----
+    |abc |History|75
+    |abc |Biology|72
+    |abc |Maths  |78
+    |pqr |History|65
+    |pqr |Biology|89
+    |pqr |Maths  |90
 
     SOLUTION
 
