@@ -60,4 +60,8 @@
 ---
 ## SPARK
 
-## SQL 
+## SQL
+
+### Functions
+
+1. COALESCE - used to handle **null** values    
