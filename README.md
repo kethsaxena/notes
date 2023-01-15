@@ -30,7 +30,9 @@
 
     CODE SNIPPET 
 
-        `val data = "path to file"
+    `
+    
+        val data = "path to file"
 
         "select name,subject,sum(marks) from data group by name,subject"
 
@@ -42,7 +44,9 @@
         TRANSPOSE 
 
         val pivotDF  = data.groupby("name").pivot("subject").sum("marks")
-        pivotDF.show()`
+        pivotDF.show()
+    `
+    
 
 2. Question 2: Write code to reverse every alternate string of given sentence?
 
