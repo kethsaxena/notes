@@ -44,8 +44,6 @@
         val pivotDF  = data.groupby("name").pivot("subject").sum("marks")
         pivotDF.show()
     
-    
-
 2. Question 2: Write code to reverse every alternate string of given sentence?
 
     DATA
@@ -60,4 +58,6 @@
     }
     x.zipWithIndex.filter(_._2 % 2 == 0).map(s=>reverse(s))
 ---
-## SPARK 
+## SPARK
+
+## SQL 
