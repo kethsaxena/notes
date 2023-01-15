@@ -12,6 +12,7 @@
 1. Question 1: Transpose the following Data set ?  
     
     DATA
+    
     |name|subject|marks
     |----|-------|----
     |abc |History|75
@@ -26,9 +27,10 @@
     1. Read The File 
     2. Write Function to Transpose Data
     3. Show Final Dataset
-    
-    `
-        val data = "path to file"
+
+    CODE SNIPPET 
+
+        `val data = "path to file"
 
         "select name,subject,sum(marks) from data group by name,subject"
 
@@ -40,9 +42,7 @@
         TRANSPOSE 
 
         val pivotDF  = data.groupby("name").pivot("subject").sum("marks")
-        pivotDF.show()
-    `
-
+        pivotDF.show()`
 
 2. Question 2: Write code to reverse every alternate string of given sentence?
 
