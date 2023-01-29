@@ -6,7 +6,147 @@
 
 
 # Interview Questions
+## HADOOP
+ - Hadoop 3.2.x requires Java 8 and works only with Java 8
+ - Hadoop 3.3 compiles with Java 8 and works only with Java 11
 ## JAVA 
+
+1. What is the difference between JDK,JRE,JVM ?
+### CODING QUESTIONS
+
+1. Find the second largest number in the array ?
+
+import java.util.*;
+
+public class MyClass {
+    public static void main(String args[]) {
+      List<Integer> myInt = new ArrayList<Integer>();
+      myInt.add(1);
+      myInt.add(7);
+      myInt.add(2);
+      myInt.add(3);
+      myInt.add(4);
+      myInt.add(8);
+      
+      
+      
+      int MaxNum =0;
+      int MaxNumIndex =0;
+      int SecondLargestNum =0;
+      for(int i =0; i <myInt.size();i++){
+          if(MaxNum <= myInt.get(i)){
+              MaxNum=myInt.get(i);
+              MaxNumIndex= i;
+          }
+      }
+      
+      myInt.remove(MaxNumIndex);
+      
+      for(int i =0; i <myInt.size();i++){
+          System.out.println(myInt.get(i));
+          if(SecondLargestNum <= myInt.get(i)){
+              SecondLargestNum=myInt.get(i);
+          }
+          
+      }
+      
+      System.out.println("Second Largest Number:"+SecondLargestNum);
+      
+    }
+}
+
+
+2. Question 2: Find if two strings are anagrams of each other ?
+
+
+a-1
+s-2
+l-1
+m-1
+e-1
+n=1 
+
+test('salesmen', 'nameless') == true;
+test('abcd', 'dabc') == true;
+
+test('anagram', 'grammer') == false;
+test('aabc', 'abcc') == false;
+
+
+import java.util.*
+
+public class myAnagram{
+  
+  
+  boolean isAnagram(String srcStr, String tarStr)
+  {
+  	boolean assertFlag=False;
+    //STEP1
+    if(srcStr.length!=tarStr.length){return false;}
+    
+    //STEP 2 CHECK IF SORTED IS CORRECT
+    char a[] = srcStr.toCharArray();
+    char b[] = tarStr.toCharArray();
+    boolean isSortFlag = Arrays.equals(Arrays.sort(a),Arrays.sort(b)); 
+    
+    assertFlag =isSortFlag;
+    
+    //STEP3 CHARACTERS IN STRING 
+    HashMap<Character, counter> mycharMapSRC = new HashMap<Character, counter>;
+    HashMap<Character, counter> mycharMapTAR = new HashMap<Character, counter>;
+    
+    //src
+    for(int i=0; i<=a.size;a++){
+       if(mycharMapSRC.contains(a[i])){
+         mycharMapSRC.put(a[i],mycharMapSRC.get(a[i])+1);
+       }
+       else
+       {
+       	mycharMapSRC.put(a[i],1);
+       }
+       	
+    }   
+    
+    //tar
+     for(int i=0; i<=b.size;a++){
+       if(mycharMapTAR.contains(a[i])){
+         mycharMapTAR.put(a[i],mycharMapTAR.get(a[i])+1);
+       }
+       else
+       {
+       	mycharMapTAR.put(a[i],1);
+       }   	
+    }   
+    
+    
+    boolean isHashmapEqual  = assertTrue(mycharMapSRC.equals(mycharMapTAR));
+    
+    return assertFlag=isHashmapEqual;
+
+  }
+  public static void main()
+  {
+  
+    myAnagram()
+    //STEP 1
+    // first the length of the two strings 
+    
+    //STEP 2 Split the strings into an array 
+  
+    
+    //STEP 3 Count the unique occurances of the character in the string array
+    
+    
+  }
+    
+    
+    
+}
+
+
+Question 3: Given a 2D array, print it in spiral form.
+
+
 ## SCALA 
 --- 
 1. Question 1: Transpose the following Data set ?  
@@ -52,16 +192,42 @@
     o/p : ew love ruo country
     
     SOLUTION
-    val x  = "We love our country"
-    def myReverse(s:String): String = {
-        s.reverse 
-    }
-    x.zipWithIndex.filter(_._2 % 2 == 0).map(s=>reverse(s))
+
+        val x  = "We love our country"
+        def myReverse(s:String): String = {
+            s.reverse 
+        }
+        x.zipWithIndex.filter(_._2 % 2 == 0).map(s=>reverse(s))
 ---
 ## SPARK
+ - Compression Algorithm for paqruet data 
+ - 
+    UNCOMPRESSED = 0;
+    SNAPPY = 1;
+    GZIP = 2;
+    LZO = 3;
+    BROTLI = 4; // Added in 2.4
+    LZ4 = 5;    // Added in 2.4
+    ZSTD = 6;   // Added in 2.4
 
 ## SQL
 
+###
+
+1. DDL
+2. DML 
+    UPDATE 
+     - UPDATE with CASE 
+
+            UPDATE TableName
+            SET gender = CASE 
+                            WHEN gender = 'M' THEN 'W' 
+                            WHEN gender = 'W' THEN 'M'
+                         ELSE gender END
+
+2. DIMENSION MODELLING 
+
 ### Functions
 
-1. COALESCE - used to handle **null** values. If there is null value in column and you want to include in result set, you can COALESCE(Column Name, int or String value)    
+1. COALESCE - used to handle **null** values. If there is null value in column and you want to include in result set, you can COALESCE(Column Name, int or String value)
+2.     
