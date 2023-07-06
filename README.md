@@ -1,11 +1,17 @@
 - 👋 Hi, I’m @kethsaxena
 - 👀 I’m interested in JAVA,C++,Bash & Python projects
 - 🌱 I’m currently learning ... watchdog, log roation , distributed computing
-- 💞️ I’m looking to collaborate on ...making python faster 
+- 💞️ I’m looking to collaborate on ...making python faster and building projects on GraalVM 
 - 📫 How to reach me ...please don't 
 
 
-# Interview Questions
+# __Interview Questions__
+1. [Hadoop](#hadoop)
+2. [Java](#java)
+3. [Scala](#scala)
+4. [Spark](#spark)
+5. [SQL](#sql)
+
 ## HADOOP
  - Hadoop 3.2.x requires Java 8 and works only with Java 8
  - Hadoop 3.3 compiles with Java 8 and works only with Java 11
@@ -200,15 +206,22 @@ Question 3: Given a 2D array, print it in spiral form.
         x.zipWithIndex.filter(_._2 % 2 == 0).map(s=>reverse(s))
 ---
 ## SPARK
+1. [Spark Run Modes](#spark-run-modes)
+ ### Spark Run Modes
+    - Interactive Mode
+        - spark-shell
+        - notebook
+    - Submit Job
+        - spark-submit 
+        - REST API      
  - Compression Algorithm for paqruet data 
- - 
-    UNCOMPRESSED = 0;
-    SNAPPY = 1;
-    GZIP = 2;
-    LZO = 3;
-    BROTLI = 4; // Added in 2.4
-    LZ4 = 5;    // Added in 2.4
-    ZSTD = 6;   // Added in 2.4
+    1. UNCOMPRESSED = 0;
+    2. SNAPPY = 1;
+    3. GZIP = 2;
+    4. LZO = 3;
+    5. BROTLI = 4; // Added in 2.4
+    6. LZ4 = 5;    // Added in 2.4
+    7. ZSTD = 6;   // Added in 2.4
 
 ## SQL
 
