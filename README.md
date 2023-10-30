@@ -11,6 +11,7 @@
 3. [Scala](#scala)
 4. [Spark](#spark)
 5. [SQL](#sql)
+6. [Python](#python)
 
 ## HADOOP
  - Hadoop 3.2.x requires Java 8 and works only with Java 8
@@ -91,7 +92,7 @@ public class myAnagram{
     if(srcStr.length!=tarStr.length){return false;}
     
     //STEP 2 CHECK IF SORTED IS CORRECT
-    char a[] = srcStr.toCharArray();
+    char a[] =pip i srcStr.toCharArray();
     char b[] = tarStr.toCharArray();
     boolean isSortFlag = Arrays.equals(Arrays.sort(a),Arrays.sort(b)); 
     
@@ -208,12 +209,12 @@ Question 3: Given a 2D array, print it in spiral form.
 ## SPARK
 1. [Spark Run Modes](#spark-run-modes)
  ### Spark Run Modes
-    - Interactive Mode
-        - spark-shell
-        - notebook
-    - Submit Job
-        - spark-submit 
-        - REST API      
+  - Interactive Mode
+    - spark-shell
+    - notebook
+  - Submit Job
+    - spark-submit 
+    - REST API      
  - Compression Algorithm for paqruet data 
     1. UNCOMPRESSED = 0;
     2. SNAPPY = 1;
@@ -222,6 +223,8 @@ Question 3: Given a 2D array, print it in spiral form.
     5. BROTLI = 4; // Added in 2.4
     6. LZ4 = 5;    // Added in 2.4
     7. ZSTD = 6;   // Added in 2.4
+JVM Parameters:
+-Dlog4j.configuration=file:log4j.properties -Dlogfile.name=hello-spark -Dspark.yarn.app.container.log.dir=app-logs
 
 ## SQL
 
@@ -243,4 +246,12 @@ Question 3: Given a 2D array, print it in spiral form.
 ### Functions
 
 1. COALESCE - used to handle **null** values. If there is null value in column and you want to include in result set, you can COALESCE(Column Name, int or String value)
-2.     
+
+ spark-submit --class guru.learningjournal.spark.examples.HelloSpark /mnt/c/projects/scalaProjects/02_sparkExamples/SparkProgrammingInScala/01-HelloSpark/target/scala-2.13/hellospark_2.13-0.1.jar Dlog4j.configuration=file:log4j.properties Dlogfile.name=hello spark Dspark.yarn.app.container.log.dir =app logs
+
+spark-submit  --master local --class guru.learningjournal.spark.examples.HelloSpark --files /mnt/c/projects/scalaProjects/02_sparkExamples/SparkProgrammingInScala/01-HelloSpark/log4j.properties /mnt/c/projects/scalaProjects/02_sparkExamples/SparkProgrammingInScala/01-HelloSpark/data/sample.csv /target/scala-2.13/hellospark_2.13-0.1.jar 
+## python
+1. regex 
+    - search 
+    - match 
+    2. 
