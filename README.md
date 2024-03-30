@@ -6,12 +6,17 @@
 
 
 # __Interview Questions__
-1. [Hadoop](#hadoop)
-2. [Java](#java)
-3. [Scala](#scala)
-4. [Spark](#spark)
-5. [SQL](#sql)
-6. [Python](#python)
+1.  [Hadoop](#hadoop)
+2.  [Java](#java)
+3.  [Scala](#scala)
+4.  [Spark](#spark)
+5.  [SQL](#sql)
+6.  [Python](#python)
+7.  [Javascript](#javascript)
+8.  [DS](#datastructures)
+9.  [FrontEnd](#fecoding Angular)
+10. [UI-Design] (#UIDes)
+
 
 ## HADOOP
  - Hadoop 3.2.x requires Java 8 and works only with Java 8
@@ -19,6 +24,34 @@
 ## JAVA 
 
 1. What is the difference between JDK,JRE,JVM ?
+    - BASICS
+        - JDK 🚶 
+            - is the full suite develper needs to develop and test apps
+            - JRE + javac(Compiler) + DEBUGGER + ARCHIVER
+        - JRE 🧠 + ❤️ + 🧬  
+            - runtime environment includes JVM + libraries 
+        - JVM 🧠   
+            - is the the Java VirtuaL Machine that exceutes bytecode
+        - What is difference between == and .equals? 
+            - == compares memory .equals compares content of Objects 
+        - static keyword is used to define members 
+            - fields
+            - methods 
+            - nested class
+            - that are members of the class rather than to instances of the class 
+        - Constructor 
+            - 
+    - Junit 
+        - @Test to label if some function  is a unit test 
+        - These methods are public and void 
+        - methods🚨
+            - assertEquals()
+            - assertTrue()
+            - assertArrayEquals()
+        - @Before, @After, @BeforeClass, @AfterClass
+        - ❗IMP: No Failure = Success 
+      
+    - 
 ### CODING QUESTIONS
 
 1. Find the second largest number in the array ?
@@ -154,6 +187,7 @@ public class myAnagram{
 Question 3: Given a 2D array, print it in spiral form.
 
 
+### Bitwise operators 
 ## SCALA 
 --- 
 1. Question 1: Transpose the following Data set ?  
@@ -225,8 +259,39 @@ Question 3: Given a 2D array, print it in spiral form.
     7. ZSTD = 6;   // Added in 2.4
 JVM Parameters:
 -Dlog4j.configuration=file:log4j.properties -Dlogfile.name=hello-spark -Dspark.yarn.app.container.log.dir=app-logs
+ - Creating RDD
+     1. Spark Context
+     2. Hive Context 
+ - Transformations
+     - do not execute immediately
+     - but build up the Logical execution plan called the DAG
+ - narrow transformation
+     1. map 
+     2. flatmap - can yield more values !  
+     3. filter
+     4. union 
+ - wide transformation 
+     1. groupByKey 
+     2. reduceByKey - to aggregate values by a key value
+     3. join
+ - Other Transformations
+     - distinct 
+     - sample 
+     - union, intersect, subtract, cartesian 
+-  Actions 
+    - Result in an RDD to Driver program
+    - Or to external database 
+     - collect
+     - count 
+     - countByValue
+     - take 
+     - top
+     - reduce
+  - Lazy Evaluation - 
 
 ## SQL
+ - Window Functions 
+ - CTE 
 
 ###
 
@@ -243,6 +308,14 @@ JVM Parameters:
 
 2. DIMENSION MODELLING 
 
+
+SELECT Students.student_id, Students.student_name, Subjects.subject_name, COUNT(Examinations.subject_name) AS attended_exams
+FROM Students
+CROSS JOIN Subjects
+LEFT JOIN Examinations
+ON Students.student_id = Examinations.student_id AND Subjects.subject_name = Examinations.subject_name
+GROUP BY Students.student_id, Students.student_name, Subjects.subject_name
+ORDER BY Students.student_id, Subjects.subject_name;
 ### Functions
 
 1. COALESCE - used to handle **null** values. If there is null value in column and you want to include in result set, you can COALESCE(Column Name, int or String value)
@@ -255,3 +328,58 @@ spark-submit  --master local --class guru.learningjournal.spark.examples.HelloSp
     - search 
     - match 
     2. 
+
+
+## javascript
+
+1. Installation 
+ 
+ - install nvm shell script
+ - install node LTS versio
+ - install Angular CLI 
+
+2. ng
+    - Basic Angular coommands 🐥
+        - ng build: create distribution folder called dist👨‍🍼
+        - ng e2e: End to End Test 
+            - Protactor, Cypress, Nightwatch JS 
+            - Cypress 
+        - ng generate ⌛
+        - ng lint:run code quality checks 🔍
+        - ng new: create a starter project🥇
+        - ng test - unit test ✅❌⚠️
+        - ng serve - Builds and serves your app 🧑‍💻️
+      - Testing framework Jasmine uses Karma or Karma server to run test
+          - Frontend World typically has Specification instead of unit tests
+          - Unit Test run these specifications by by specifying them ".spec.ts" files 
+          - Angular CLI hadnles test by default specififed in angular.json 
+              - or Developer can use ```ng generate``` to create custom  Karma.conf.js   
+      - Folder Structure 📂 --- 📂
+          -  src
+              - app: contains your components
+              - assets: contains your graphics pcitures 
+              - enviornment:
+              - package.json contains your angualr dependencies 
+                  - downloaded to node_modules folder 
+      - Components
+          - Divide The UI into Components 
+          - A component has 3 parts: HTML Component + CSS + Typescript
+              - Must Have Attributes using Decroators 
+              - Decorators used to specify a JS class is Angular Component
+          - 
+## datastructure
+
+1. Array 
+2. LinkedList 
+3. Stack
+4. Queue
+5. Hash Table   
+6. Tree
+7. Graph  
+
+
+## UIDes
+1. Free hand Lines
+    - Smoothing 
+    - Node tool
+2. Curved Line and bezier Curves  
