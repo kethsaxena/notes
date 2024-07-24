@@ -15,6 +15,80 @@
 ## Week26Feb2024
 
 ## Databricks
+### Data Engineering Associate Exam Guide 
+1. Databricks Lake house Platform
+2. ELT with Apache Spark
+3. Incremental Data Processing 
+4. Production Pipelines
+5. Data Governance
+
+1. Databricks Tooling(20%)
+    1. Web app
+    2. clusters
+    3. jobs
+    4. DBSQL 
+    5. relational Entitites 
+    6. Repos
+    7. Spark API 
+    8. Delta LAKE API 
+    9. Databricks CLI 
+    10. Databricks REST API 
+        - ![Databricks Tooling:](images\03_ToolingAPI.PNG)
+2. Datbricks API
+    1. DButils
+    2. ML Flow
+    3. magic commands
+3. Apache Spark 
+4. Delta Lake
+5. Databricks CLI 
+6. REST API 
+![Web App:Tooling](images\02_WebApp.png)
+
+1. Self Assessment on Databricks Tooling(20%)
+ - Identify potential execution problems by examning event logs
+ - Orhcestrate multiple tasks as a DAG
+ - Configure dashboards for visually reporting and monitoring
+ - Identify differences between managed and external tables during dropping and renaming 
+ - Load and model a registered in MLflow as part of ETL pipeline 
+ - Run Bash commands on driver 
+2. Data Processing Topic (30%)
+  a) Building batch-processed ETL pipelines
+    - Processing upstream CDC data
+    - Propogating changes from batch jobs
+    - Gold table output
+    - Detetcting changes in the Lakehouse 
+    - Join order & hints for performance
+    - Optimising partition size for writes 
+  b) Building incrementally processed ETL pipelines 
+    - Structured Streaming concepts
+    - Watermark / Window 
+    - Checkpointing 
+    - Stream trigger intervals
+    - Stream- static joins
+    - Autocompaction / AutoOptimize
+  c) Optimising Workloads 
+   - ![Optimize Workloads:](images\04_OptimiWorkloads.PNG)
+  d) Deduplicating data 
+  e) Using Change Data Capture(CDC) to propogate changes 
+3. Data Modeliing (20%)
+ - Lakehouse Concepts
+   - Bronze-silver-gold Architecture
+    ![bsg:](images\05_BSGArchitecture.PNG)
+   - Database,tables, views 
+    ![DTV:](images\06_BSGArchitecture.PNG) 
+   - Optimizing physical layout
+    ![DTV:](images\07_Optimising.PNG)
+   
+ - General data modelling concepts
+   - Keys, constraints, lookup tables, slowly changing dimensions 
+    ![08_GDM](images\06_BSGArchitecture.PNG)  
+4. Security and Governance (10%)
+    ![09_SnG](images\09_SecurityNGovernance.PNG) 
+5. Monitoring and Logging (10%)
+    ![10_MonLog](images\10_MonitoringNLogging.PNG)
+
+
+
 ### Pre-Req 
 1. Cloud computing virtual machines, object storage
 2. Data warehouses and data lakes
@@ -61,7 +135,7 @@ Workloads --> Cluster
         2. Job Cluster 
             - for: running automated jobs
             - diff: config info saved for last 30  terminated clusters
-    - Cluster Cinfuguration 
+    - Cluster Confuguration 
         - Cluster mode 
             1. Standard (Multi-Node)
                 - Default mode
@@ -170,7 +244,7 @@ Durability
 Data Access Control 
 Data Access Audit 
 Data Lineage 
-Data Dsicovery 
+Data Discovery 
 
 Unity Catalog 
  - Central hub for auditing Data Assets 
@@ -179,6 +253,8 @@ Unity Catalog
  3. The assets in Hive_metastore have special reference to assets 
  4. 3 Level Namespace : CATALOG --> SCHEMA  --> TABLE + VIEW + FUNCTIONS 
 
+Metastore vs Catalog 
+ - 
  #### TABLE 
   - Managed table 
     - Table are created in location on Metastore 
@@ -221,7 +297,6 @@ Query Lifecycle
 3. Describe end to end fault tolerance 
 4. Create an aggregation and  watermark on a streaming dataset  
 
-
 #### Streaming data concepts
 
 1. Bounded and Unbounded datasets 
@@ -235,7 +310,7 @@ Streaming: COntinuous and Unbounded data
  - Application Events
  - Mobile and IOT Data 
 
- Stream Processing USe case
+ Stream Processing Use case
   - Real time Reporting 
   - Notifications 
   - Incremental ETL
@@ -254,88 +329,122 @@ Streaming: COntinuous and Unbounded data
 - The order not always sequential
 - Vehicles on a highway 
 
+Structured Streaming: Process infinite data as an incremental  table update 
+  - Append Only 
+  - New rows appended to an unbounded table as new data in stream is appended 
+  - Biggest Advantage with Spark
+      - Your queries don't have to change 
+      - Simply Select the option between Batch and Streaming option  
+  - spark.readstream.formatfileformat.loaddirectory 
+ 
+- Micro-batch Execution 
+    1. + ADV Latency 100ms to 1 second
+    2. + Dynamic Load  Balancing Technicques 
+    3. + Higher throughput per node 
+    4. + Exactly 1 message gurantees 
+    1. - DIS Higher base latency 
+    1. - DIS Lower maximum throughput
+- Continuous Execution 
+    1. Each node listening to updates
+    2. Outputting updates on child nodes
+    Ex: Map Computation over several Streams in a continuous prcessing system 
+    - Each nodes reads map computation from a source 
+    - Apply the map function 
+    - Send them to appropriate reducer 
+    - Reducer would update state when it gets a new record 
+    - KEY: this happens on each individual record as illustrated here
+    - ADV: 
+        1. + ADV extremely Low LATENCY or millisecond  
+        1. Fixed Topology of Operators, that cannot be moved at Runtime
+        1. lowest possible latency when input rate is low , because each node responds to a new message
+        -   
 
+How to decide which mode to choose 
+1. Total Latency 
+2. TCP: Total Cost of Operation 
+3. Streamign application that are large enough to scale try to maximize their throughput 
+4.   
 
+- Anatomy of Structured Query 
+    - 
+Sorting is not the supported in sttructured streaming data 
 
-### Data Engineering Associate Exam Guide 
+Checkpointing 
+event-time-window-based aggregation 
+Aggregations, Time Windows, Watermarks
 
-1. Databricks Lake house Platform
-2. ELT with Apache Spark
-3. Incremental Data Processing 
-4. Production Pipelines
-5. Data Governance
+Time Windows 
+ 1. Tumbling Windows
+ 2. Sliding windows
+ 
+Event Time 
+Processing time 
 
-1. Databricks Tooling(20%)
-    1. Web app
-    2. clusters
-    3. jobs
-    4. DBSQL 
-    5. relational Entitites 
-    6. Repos
-    7. Spark API 
-    8. Delta LAKE API 
-    9. Databricks CLI 
-    10. Databricks REST API 
-        - ![Databricks Tooling:](images\03_ToolingAPI.PNG)
-2. Datbricks API
-    1. DButils
-    2. ML Flow
-    3. magic commands
-3. Apache Spark 
-4. Delta Lake
-5. Databricks CLI 
-6. REST API 
-![Web App:Tooling](images\02_WebApp.png)
+Stateless vs Stateful Processing 
+ - Stateless:  
+ -  
+Watermarking - Threshold lake data 
+ - The last time at which to expect data. Like a minimum speed limit
+ - Handle late data and how long to rememember old data 
+ 
+Delta Live tables Review
+  - Medallion Architecture 
+  1. Bronze - Raw + History  
+  2. Silver - Filtered, Cleaned and Augmented  
+  3. Gold - Business Level aggregates 
+     
+Streaming from a Delta Lake 
 
-1. Self Assessment on Databricks Tooling(20%)
- - Identify potential execution problems by examning event logs
- - Orhcestrate multiple tasks as a DAG
- - Configure dashboards for visually reporting and monitoring
- - Identify differences between managed and external tables during dropping and renaming 
- - Load and model a registered in MLflow as part of ETL pipeline 
- - Run Bash commands on driver 
-2. Data Processing Topic (30%)
-  a) Building batch-processed ETL pipelines
-    - Processing upstream CDC data
-    - Propogating changes from batch jobs
-    - Gold table output
-    - Detetcting changes in the Lakehouse 
-    - Join order & hints for performance
-    - Optimising partition size for writes 
-  b) Building incrementally processed ETL pipelines 
-    - Structured Streaming concepts
-    - Watermark / Window 
-    - Checkpointing 
-    - Stream trigger intervals
-    - Stream- static joins
-    - Autocompaction / AutoOptimize
-  c) Optimising Workloads 
-   - ![Optimize Workloads:](images\04_OptimiWorkloads.PNG)
-  d) Deduplicating data 
-  e) Using Change Data Capture(CDC) to propogate changes 
-3. Data Modeliing (20%)
- - Lakehouse Concepts
-   - Bronze-silver-gold Architecture
-    ![bsg:](images\05_BSGArchitecture.PNG)
-   - Database,tables, views 
-    ![DTV:](images\06_BSGArchitecture.PNG) 
-   - Optimizing physical layout
-    ![DTV:](images\07_Optimising.PNG)
-   
- - General data modelling concepts
-   - Keys, constraints, lookup tables, slowly changing dimensions 
-    ![08_GDM](images\06_BSGArchitecture.PNG)  
-4. Security and Governance (10%)
-    ![09_SnG](images\09_SecurityNGovernance.PNG) 
-5. Monitoring and Logging (10%)
-    ![10_MonLog](images\10_MonitoringNLogging.PNG)
+Autolader Vs Structured Streaming
+ 1. Autoloder can discover billons of files efficiently
+ 2. Asynchronus backfills avoide compute resouces wastage 
+ 3. Native Cloud API 
+ 4. Directory Listing Mode 
+CDF 
+- Change data feeds 
+- 
+#### Streaming ETL patterns with DLT
+1. Use Delta for Infinite Retention 
+2. Upto Date Replica with CDC
+3. Multiplex ingestion 
 
-
-
-
+INFIR - Infitie Retention using Delta
+ - Broze Data - streaming table 
+ - Live Table - Silver and Gold Table 
+ - 
 ## LINKS
+#### Data governance 
+Regulatory Compliance
+EU=GDPR 
+US=CGPA
+Audits Can be very costly - 4% of their Annual Revenue
+
+- Dataskipping optimizations(Z order)
+- Delete Data (VACUUM)
+- Transaction Logs for Auditing
+psudonymization 
+anonymization 
+ MEthods 
+  - generalization 
+  - categorical generalization 
+  - 
+Hashvalue increase data size
+
+Tokenize the dataset
+
+- Databricks Functions 
+    - slice subset on Array
+    - returns rown by unesting a collection
+    - faltten array of arrays into a single array 
+    - reduce : aggregates elements using an expression  
+  
+CTAS Table 
+Delta live Table 
+STREAMING Table 
 
 1. HSA
 3. 401K 
 3. [SALESFORCE:Karla Morrobel](karla.morrobel@matrix-ifs.com) 
 4. [Trinet](https://identity.trinet.com/)
+
+The capital of Iran. is Tehran. Salesforce is a company. In the United States. So data breaks the difference between data breaks, live stream versus. Voices. Non data bricks commands is that data bricks gives you. Live ingestion materialized views. 
